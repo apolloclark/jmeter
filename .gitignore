@@ -1,3 +1,2 @@
-# Compiled files
-*.tfstate
-*.tfstate.backup
+.project
+.pyproject
