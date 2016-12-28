@@ -1,5 +1,5 @@
 #
-# Dockerfile to create a jmeter-server image.
+# Dockerfile to create a jmeter-node image.
 # 
 # Usage:
 #  docker run -d \         
@@ -7,7 +7,7 @@
 #             -p 0.0.0.0:some-other-port-on-host:60000 \
 #             -v /some/local/path:/logs \
 #             -v /some/other/local/path:/input-data \
-#             apolloclark/jmeter-server
+#             apolloclark/jmeter-node
 #
 
 FROM apolloclark/jmeter-base

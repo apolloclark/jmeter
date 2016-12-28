@@ -1,0 +1,53 @@
+version: '2'
+
+# https://docs.docker.com/compose/compose-file/
+# http://www.testautomationguru.com/jmeter-distributed-load-testing-using-docker/
+# srivaths.blogspot.com/2014/08/distrubuted-jmeter-testing-using-docker.html
+# http://jmeter.apache.org/usermanual/get-started.html#options
+
+services:
+  jmeter-node01:
+    container_name: jmeter-node01
+    image: apolloclark/jmeter-node
+    ports:
+      - 1099
+      - 50000
+    volumes:
+      - /input_data
+      - /logs
+  jmeter-node02:
+    container_name: jmeter-node02
+    image: apolloclark/jmeter-node
+    ports:
+      - 1099
+      - 50000
+    volumes:
+      - /input_data
+      - /logs
+  jmeter-node03:
+    container_name: jmeter-node03
+    image: apolloclark/jmeter-node
+    ports:
+      - 1099
+      - 50000
+    volumes:
+      - /input_data
+      - /logs
+  jmeter-master:
+    container_name: jmeter-master
+    image: apolloclark/jmeter-master
+    ports:
+      - 60000
+    volumes:
+      - ./scripts:/scripts
+      - /input_data
+      - ./logs:/logs
+    entrypoint:
+      - /var/lib/apache-jmeter/bin/jmeter
+      - -n
+      - -t
+      - /scripts/test_google.jmx
+      - -l
+      - /logs/results.csv
+      - -LDEBUG
+      # - -R 172.18.0.2,172.18.0.3,172.18.0.4

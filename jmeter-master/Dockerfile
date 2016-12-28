@@ -1,5 +1,5 @@
 #
-# Dockerfile for a jmeter client.
+# Dockerfile for a jmeter master.
 # A container from this image will be ready to run a jmeter client.
 # 
 # Usage:
@@ -8,7 +8,6 @@
 #             -v <absolute path on host>:/input-data \
 #             -v <absolute path on host>:/scripts \
 #             <docker image> -n \
-#                            -LDEBUG # <-- ok, this is optional.
 #                            -t /scripts/<script file name> 
 #                            -l /logs/<output jtl file name>
 #                            -R<server IP addresses>
@@ -26,4 +25,4 @@ VOLUME ["/logs"]
 # Use a predefined configuration.  This sets the contract for connecting to jmeter servers.
 ADD jmeter.properties /var/lib/apache-jmeter/bin/
 
-ENTRYPOINT [ "/var/lib/apache-jmeter/bin/jmeter" ]
+ENTRYPOINT [ "/var/lib/apache-jmeter/bin/jmeter"]

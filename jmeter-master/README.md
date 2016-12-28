@@ -1,8 +1,8 @@
-# jmeter-client
+# jmeter-master
 
-jmeter-client image, based off of the jmeter-base image.
+jmeter-master image, based off of the jmeter-base image.
 
 Build:
 ```shell
-docker build -t apolloclark/jmeter-client .
+docker build -t apolloclark/jmeter-master .
 ```
