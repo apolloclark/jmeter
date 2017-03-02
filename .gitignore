@@ -1,4 +1,4 @@
 .project
 .pyproject
 .vagrant
-/logs/*
+*/logs/*
