@@ -39,9 +39,8 @@ services:
     ports:
       - 60000
     volumes:
-      - ./scripts:/scripts
-      - /input_data
-      - ./logs:/logs
+      - ./jmeter-master/scripts:/scripts
+      - ./jmeter-master/logs:/logs
     entrypoint:
       - /var/lib/apache-jmeter/bin/jmeter
       - -n
@@ -49,5 +48,7 @@ services:
       - /scripts/test_google.jmx
       - -l
       - /logs/results.csv
+      - -j
+      - /logs/jmeter.log
       - -LDEBUG
       # - -R 172.18.0.2,172.18.0.3,172.18.0.4
